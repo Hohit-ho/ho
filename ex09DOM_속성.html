@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputText">
+    <button id="inputBtn">입력 값 가져오기</button>
+    <br>
+    <img width="200px" id="imgTag" src="https://file2.nocutnews.co.kr/newsroom/image/2022/06/03/202206030930060940_0.jpg">
+    <br>
+    <button id="getImgBtn">이미지 값 가져오기</button>
+    <button id="setImgBtn">이미지 변경하기</button>
+    <script>
+        // 텍스트 받아오기
+     
+        // 1. input 태그 내에 사용자가 입력한 값을 가져와 봐자
+        let inputBtn = document.getElementById('inputBtn')
+        inputBtn.addEventListener('click',()=>{
+            let inputText = document.getElementById('inputText')
+            console.log('input : ', inputText.value)
+        })
+
+        // 2. img 태그에 접근해보자. 
+        // src 속성을 바꾸어 주면, 이미지 변경하기 눌렀을 때 이미지가 변경하기 
+        let imgTag = document.getElementById('imgTag')
+
+        // Case 1) 작성 방법 : 요소.속성이름 => 파일의 이름을 확인 할 수 있다. 
+        console.log(imgTag.scr)
+
+        // Case 2) 작성 방법 : 요소.getAttribute('속성이름') => px을 확인 할 수 있다. 
+        console.log(imgTag.getAttribute('width'))
+        
+        // 3. img 태그를 바꾸어 보자
+        let setImgBtn = document.getElementById('setImgBtn')
+        // setImgBtn를 클릭하면 이미지를 변경하는 하겠다.  
+        setImgBtn.addEventListener('click', ()=>{
+
+            // Case 1) 작성 방법 : 요소.속성이름 = "바꿀 값"        → 바꿀 이미지 입력
+            imgTag.src = "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2020/04/28/t6PZe1PnNKv2637236620926055644.jpg"
+
+            // Case 2) 작성 방법 : 요소.setAttribute('속성', '값') → 이미지 넓이 px값 변경
+            imgTag.setAttribute('width', '400px')
+
+        })
+
+
+    </script>
+</body>
+</html>
